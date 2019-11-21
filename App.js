@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function App() {
+  const [summoned, setSummoned] = useState(false)
+
   return (
     <View style={styles.container}>
-      <Button>Summon</Button>
+      {summoned ?
+      <Button title="Cancel" color="red" onPress={() => setSummoned(!summoned)}></Button>
+      :
+      <Button title="Summon" onPress={() => setSummoned(!summoned)}></Button>
+      }
     </View>
   );
 }
