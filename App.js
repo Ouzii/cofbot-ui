@@ -43,9 +43,6 @@ export default function App() {
     setTimes([...times, date])
   }
 
-
-  // if (loading) return <ActivityIndicator animating={true}/>
-
   return (
     <View style={styles.container}>
       <View>
