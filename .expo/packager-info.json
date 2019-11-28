@@ -1,8 +1,8 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 6048,
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
   "expoServerNgrokUrl": "https://jh-3hu.anonymous.cofbot-ui.exp.direct",
   "packagerNgrokUrl": "https://packager.jh-3hu.anonymous.cofbot-ui.exp.direct",
   "ngrokPid": 6132,

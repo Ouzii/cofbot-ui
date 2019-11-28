@@ -20,7 +20,7 @@ export default function App() {
     setSummoned(true)
     setTimeout(() => {
       setLoading(false)
-    }, 1400)
+    }, 300)
     setTimeout(() => {
       setSummoned(false)
     }, 30000)
@@ -31,7 +31,7 @@ export default function App() {
     setSummoned(false)
     setTimeout(() => {
       setLoading(false)
-    }, 1400);
+    }, 1000);
   }
 
   const isReserved = date => {
