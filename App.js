@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { StyleSheet, Text, View, Modal } from 'react-native'
 import { Button, RadioButton } from 'react-native-material-ui'
 import DateTimePicker from 'react-native-modal-datetime-picker'
-import { Snackbar } from 'react-native-paper'
+import { Snackbar, ActivityIndicator } from 'react-native-paper'
 
 export default function App() {
   const [summoned, setSummoned] = useState(false)
@@ -13,12 +13,25 @@ export default function App() {
   const [place, setPlace] = useState(1)
   const [times, setTimes] = useState([])
   const [reserved, setReserved] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const summon = () => {
+    setLoading(true)
     setSummoned(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 1400)
     setTimeout(() => {
       setSummoned(false)
     }, 30000)
+  }
+
+  cancel = () => {
+    setLoading(true)
+    setSummoned(false)
+    setTimeout(() => {
+      setLoading(false)
+    }, 1400);
   }
 
   const isReserved = date => {
@@ -33,7 +46,29 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View>
-        {summoned ? (
+        {loading ? (<Button
+            text=''
+            style={
+              summoned ? {
+              container: {
+                backgroundColor: '#6CFF38',
+                borderRadius: 100,
+                width: 200,
+                height: 200
+              }}
+              :
+              {container: {
+                backgroundColor: '#1CC8FF',
+                borderRadius: 100,
+                width: 200,
+                height: 200
+              }}
+            }
+            disabled
+            icon={<ActivityIndicator animating={true} color={summoned ? '#1CC8FF' : '#6CFF38'}/>}
+          ></Button>)
+        :
+        summoned ? (
           <Button
             text={`ETA\n<1min\nCancel`}
             style={{
@@ -45,7 +80,7 @@ export default function App() {
               },
               text: { textAlign: 'center' }
             }}
-            onPress={() => setSummoned(!summoned)}
+            onPress={() => cancel()}
           ></Button>
         ) : (
           <Button
