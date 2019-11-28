@@ -55,6 +55,8 @@ export default function App() {
                 borderRadius: 100,
                 width: 200,
                 height: 200
+              }, text: {
+                fontSize: 18
               }}
               :
               {container: {
@@ -62,7 +64,7 @@ export default function App() {
                 borderRadius: 100,
                 width: 200,
                 height: 200
-              }}
+              }, text: { textAlign: 'center', fontSize: 18 }}
             }
             disabled
             icon={<ActivityIndicator animating={true} color={summoned ? '#1CC8FF' : '#6CFF38'}/>}
@@ -78,7 +80,7 @@ export default function App() {
                 width: 200,
                 height: 200
               },
-              text: { textAlign: 'center' }
+              text: { textAlign: 'center', fontSize: 18 }
             }}
             onPress={() => cancel()}
           ></Button>
@@ -91,6 +93,9 @@ export default function App() {
                 borderRadius: 100,
                 width: 200,
                 height: 200
+              },
+              text: {
+                fontSize: 18
               }
             }}
             onPress={() => summon()}
